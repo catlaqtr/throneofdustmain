@@ -38,4 +38,5 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:8080/actuator/health || exit 1
 
 # Run the application
-CMD ["java", "-jar", "target/throneofdust-0.0.1-SNAPSHOT.jar"]
+# Use PORT environment variable for Render compatibility
+CMD ["sh", "-c", "java -jar target/throneofdust-0.0.1-SNAPSHOT.jar --server.port=${PORT:-8080}"]
