@@ -1,3 +1,1 @@
--- V2 migration: TREASURY building type is already included in V1
--- This migration is kept for consistency but no changes are needed
--- as TREASURY was already included in the initial buildings_type_check constraint
+-- V2 migration: Empty migration for consistency
