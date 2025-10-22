@@ -23,7 +23,6 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm<LoginFormData | RegisterFormData>({
     resolver: zodResolver(isRegister ? registerSchema : loginSchema),
     mode: "onBlur",
@@ -111,13 +110,13 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
               type="password"
               {...register("confirmPassword")}
               className={`w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 ${
-                errors.confirmPassword
+                "confirmPassword" in errors && errors.confirmPassword
                   ? "border-red-500 focus:ring-red-500"
                   : "focus:ring-yellow-500"
               }`}
               placeholder="Confirm your password"
             />
-            {errors.confirmPassword && (
+            {"confirmPassword" in errors && errors.confirmPassword && (
               <p className="text-red-400 text-sm mt-1">
                 {errors.confirmPassword.message}
               </p>

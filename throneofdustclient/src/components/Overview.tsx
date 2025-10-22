@@ -23,13 +23,6 @@ export default function Overview({ playerState, onCollect }: OverviewProps) {
     return building?.level || 0;
   };
 
-  const getAliveCharacters = () => {
-    return playerState.characters.filter((char) => char.status !== "DEAD");
-  };
-
-  const getActiveRaids = () => {
-    return [];
-  };
 
   const handleCollect = async () => {
     setIsCollecting(true);
